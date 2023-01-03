@@ -30,7 +30,7 @@ const Header = (props: Props) => {
                         >
                             News
                         </Typography>
-                        <Menu></Menu>
+                        <Menu />
                     </Toolbar>
                 </Container>
             </AppBar>
