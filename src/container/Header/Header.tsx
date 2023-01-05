@@ -17,7 +17,7 @@ const Header = (props: Props) => {
                 position="static"
                 className={`${appBar ? 'app-bar-grey' : 'app-bar'}`}
             >
-                <Container maxWidth="lg">
+                <Container maxWidth="lg" component="header">
                     <Toolbar>
                         <IconButton
                             size="large"
