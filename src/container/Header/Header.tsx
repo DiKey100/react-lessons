@@ -10,7 +10,7 @@ import './Header.scss'
 
 type Props = {}
 const Header = (props: Props) => {
-    let appBar = true
+    let appBar = false
     return (
         <>
             <AppBar
