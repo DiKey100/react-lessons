@@ -3,16 +3,17 @@ import './ProductsListItem.scss'
 
 type Props = {
     title: string
+    desc: string
     type: string
     capacity: number | string
     price: number | string
 }
-const ProductsListItem = ({ title, type, capacity, price }: Props) => {
+const ProductsListItem = ({ title, desc, type, capacity, price }: Props) => {
     return (
         <Card className="product" variant="outlined">
             <CardContent>
                 <div className="product-title">{title}</div>
-                <div className="product-decs">This's {title}</div>
+                <div className="product-decs">{desc}</div>
                 <div className="product-features">
                     <span>Type:</span> {type}
                 </div>
@@ -20,7 +21,7 @@ const ProductsListItem = ({ title, type, capacity, price }: Props) => {
                     <span>Capacity:</span> {capacity}
                 </div>
                 <div className="product-price">
-                    <span>Price:</span> {price}
+                    <span>Price:</span> {price}$
                 </div>
             </CardContent>
             <CardActions className="btns-wrap">
