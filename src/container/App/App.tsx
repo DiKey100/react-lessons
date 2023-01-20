@@ -3,6 +3,7 @@ import Header from 'container/Header/Header'
 import Main from 'container/Main/Main'
 import { StyledEngineProvider } from '@mui/material/styles'
 import { useState } from 'react'
+import { omit } from 'lodash'
 
 type ProductsInCart = {
     [id: number]: number
@@ -21,22 +22,16 @@ const App = () => {
     }
 
     const removeProductFromCart = (id: number) =>
-        setProductsInCart((prevState: ProductsInCart) => {
-            let prevProductInCart = { ...prevState }
-            delete prevProductInCart[id]
-            return prevProductInCart
-        })
+        setProductsInCart((prevState: ProductsInCart) => omit(prevState, [id]))
 
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
             <Header productsInCart={productsInCart} />
-            <button onClick={() => removeProductFromCart(1)}>
-                Delete product
-            </button>
             <Main
                 addProductToCart={addProductToCart}
                 productsInCart={productsInCart}
+                removeProductFromCart={removeProductFromCart}
             />
         </StyledEngineProvider>
     )
