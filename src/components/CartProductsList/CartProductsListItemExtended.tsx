@@ -1,4 +1,4 @@
-import { Button, Card, CardContent, Grid, TextField } from '@mui/material'
+import { Button, Card, CardContent, Grid } from '@mui/material'
 import { ProductProps } from 'utils/productsArray'
 import './CartProductsListItemExtended.scss'
 import DeleteIcon from '@mui/icons-material/Delete'
@@ -30,11 +30,17 @@ const CartProductsListItemExtended = ({
                     <Quantity
                         count={productCount}
                         onDecrementClick={() =>
-                            changeProductQuantity(product.id, productCount - 1)
+                            productCount <= 1
+                                ? removeProductFromCart(product.id)
+                                : changeProductQuantity(
+                                      product.id,
+                                      productCount - 1
+                                  )
                         }
                         onIncrementClick={() =>
                             changeProductQuantity(product.id, productCount + 1)
                         }
+                        minCount={0}
                     />
                     <br />
                     <Button
