@@ -8,11 +8,21 @@ import { omit } from 'lodash'
 type ProductsInCart = {
     [id: number]: number
 }
+type ProductsLikeState = {
+    [id: number]: boolean
+}
+
 const App = () => {
     const [productsInCart, setProductsInCart] = useState<ProductsInCart>({
         1: 5,
         2: 1,
     })
+
+    const [productsLikeState, setProductsLikeState] =
+        useState<ProductsLikeState>({
+            1: true,
+            2: true,
+        })
 
     const addProductToCart = (id: number, count: number) => {
         setProductsInCart((prevState: ProductsInCart) => ({
